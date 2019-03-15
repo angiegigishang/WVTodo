@@ -14,7 +14,7 @@ const config = {
 		path: path.join(__dirname, 'dist')
 	},
 	plugins: [
-		new webpack.definePlugin({
+		new webpack.DefinePlugin({
 			'process.env': {
 				NODE_ENV: isDev ? '"development"' : '"production"'
 			}
@@ -50,13 +50,19 @@ const config = {
 } 
 
 if (isDev) {
+	config.devtool = '#cheap-module-eval-source-map'
 	config.devServer = {
 		port: 8000,
 		host: '0.0.0.0',
 		overlay: {
 			errors: true
-		}
+		},
+		hot: true
 	}
+	config.plugins.push(
+		new webpack.HotModuleReplacementPlugin(),
+		new webpack.NoEmitOnErrorsPlugin()
+	)
 }
 
 module.exports = config
