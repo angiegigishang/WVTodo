@@ -1,6 +1,6 @@
 <template>
 	<div id="app">
-		<div id="cover">fsd</div>
+		<div id="cover"></div>
 	</div>
 </template>
 

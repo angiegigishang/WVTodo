@@ -7,6 +7,12 @@ const isDev = process.env.NODE_ENV === 'development'
 
 const config = {
 	//mode: 'production',
+	resolve: {
+    extensions: ['.js', '.vue'],
+    alias: {
+      'vue$': 'vue/dist/vue.common.js'
+    }
+  },
 	target: 'web',
 	entry: path.join(__dirname, 'src/index.js'),
 	output: {
