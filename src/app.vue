@@ -1,16 +1,23 @@
 <template>
 	<div id="app">
 		<div id="cover"></div>
+		<Header></Header>
+		<Footer></Footer>
 	</div>
 </template>
 
 <script>
+import Header from './todo/header.vue'
+import Footer from './todo/footer.jsx'
 export default {
-	
+	components: {
+		Header,
+		Footer
+	}
 }
 </script>
 
-<style>
+<style scoped>
 	#app {
 		position: absolute;
 		left: 0;
@@ -25,7 +32,7 @@ export default {
 		right: 0;
 		bottom: 0;
 		background-color: #999;
-		opacity: 0.9;
+		opacity: 0.8;
 		z-index: -1;
 	}
 </style>
