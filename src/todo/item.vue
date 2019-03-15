@@ -12,7 +12,7 @@
 export default {
 	props: {
 		todo: {
-			type: Object,
+			type: Array,
 			required: true
 		}
 	},

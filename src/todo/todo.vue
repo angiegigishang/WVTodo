@@ -6,7 +6,9 @@
 		       placeholder="接下去要做什么?"
 		       @keyup="addTodo"
 		>
-		<item :todo="todo"></item>
+		<item :todo="todos"
+		       v-for="todo in todos"
+		       :key="todo.id"></item>
 		<tabs :filter="filter"></tabs>
 	</section>
 </template>
@@ -17,12 +19,9 @@ import Tabs from './tabs.vue'
 export default {
 	data() {
 		return {
-			todo: {
-				id: 0,
-				content: 'this is todo',
-				completed: false
-			},
-			filter: 'all'
+			todos: [],
+			filter: 'all',
+			id: 0
 		}
 	},
 	components: {
@@ -30,7 +29,12 @@ export default {
 		Tabs
 	},
 	methods: {
-		addTodo() {
+		addTodo(e) {
+			this.todos.unshift({
+				id: this.id++,
+				content: e.target.value.trim(),
+				completed: false
+			})
 		}
 	}
 }
