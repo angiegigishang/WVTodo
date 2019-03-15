@@ -31,11 +31,7 @@ const config = {
 	module: {
 		rules: [{
 			test: /\.vue$/,
-			use: ['vue-loader',
-			      'style-loader',
-			      'css-loader',
-			      'stylus-loader'
-			      ]
+			loader: 'vue-loader'
 		}, {
 			test: /\.css$/,
 			use: ['style-loader','css-loader']
