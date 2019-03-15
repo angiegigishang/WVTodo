@@ -4,12 +4,27 @@
 		       class="add-input"
 		       autofocus="autofocus"
 		       placeholder="接下去要做什么?"
-		       @keyup="addTodo">
+		       @keyup="addTodo"
+		>
+		<item :todo="todo"></item>
 	</section>
 </template>
 
 <script>
+import Item from './item.vue'
 export default {
+	data() {
+		return {
+			todo: {
+				id: 0,
+				content: 'this is todo',
+				completed: false
+			}
+		}
+	},
+	components: {
+		Item
+	},
 	methods: {
 		addTodo() {
 		}
