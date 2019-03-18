@@ -67,7 +67,7 @@ export default {
 	display: flex;
 	justify-content: space-around;
 }
-.all, .active, .completed {
+.all, .active {
 	display: inline-block;
 	padding: 0 10px;
 	cursor: pointer;

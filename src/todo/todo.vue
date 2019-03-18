@@ -4,9 +4,9 @@
 		       class="add-input"
 		       autofocus="autofocus"
 		       placeholder="接下去要做什么?"
-		       @keyup="addTodo"
+		       @keyup.enter="addTodo"
 		>
-		<item :todo="todos"
+		<item :todo="todo"
 		       v-for="todo in todos"
 		       :key="todo.id"></item>
 		<tabs :filter="filter"></tabs>
@@ -28,7 +28,7 @@ export default {
 		Item,
 		Tabs
 	},
-	methods: {
+	methods: { 
 		addTodo(e) {
 			this.todos.unshift({
 				id: this.id++,

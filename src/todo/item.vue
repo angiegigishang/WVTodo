@@ -5,14 +5,17 @@
 		       v-model="todo.completed">
 		<label>{{todo.content}}</label>
 		<button class="destroy" @click="deleteTodo"></button>
-	</div>
+	</div>   
 </template>
 
 <script>
-export default {
+export default { 
+	mounted () {
+		console.log(this.todo)
+	},
 	props: {
 		todo: {
-			type: Array,
+			type: Object,
 			required: true
 		}
 	},
@@ -26,6 +29,7 @@ export default {
 
 <style>
 .todo-item {
+	padding: 0 10px;
 	position: relative;
 	background-color: #fff;
 	font-size: 24px;
@@ -46,6 +50,12 @@ label {
 .completed label {
 	color: #d9d9d9;
 	text-decoration: line-through;
+}
+
+.completed {
+	padding: 0 10px;
+	cursor: pointer;
+	border: 1px solid rgba(175,47,47,0);
 }
 
 .toggle {
